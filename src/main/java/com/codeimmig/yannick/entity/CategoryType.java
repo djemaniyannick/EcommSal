@@ -26,5 +26,4 @@ public class CategoryType {
 	@Column(name = "cat_type_note_col")
 	private String note;
 
-
 }

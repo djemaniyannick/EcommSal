@@ -16,9 +16,9 @@ import com.codeimmig.yannick.service.ICategoryService;
 import com.codeimmig.yannick.service.ICategoryTypeService;
 import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/category")
-@Slf4j
 public class CategoryController {
 	@Autowired
 	private ICategoryService service;

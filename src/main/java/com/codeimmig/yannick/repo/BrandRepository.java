@@ -10,6 +10,4 @@ import com.codeimmig.yannick.entity.Brand;
 public interface BrandRepository extends JpaRepository<Brand, Long> {
 	@Query("SELECT id, name FROM Brand")
 	List<Object[]> getBrandIdAndName();
-
-
 }

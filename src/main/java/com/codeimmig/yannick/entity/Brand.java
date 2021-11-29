@@ -1,4 +1,4 @@
-package com.codeimmig.yannick.entity;
+   package com.codeimmig.yannick.entity;
 
 
 import javax.persistence.Column;

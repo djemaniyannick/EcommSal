@@ -1,6 +1,7 @@
 package com.codeimmig.yannick.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.codeimmig.yannick.entity.Category;
 import com.codeimmig.yannick.repo.CategoryRepository;
 import com.codeimmig.yannick.service.ICategoryService;
+import com.codeimmig.yannick.util.AppUtil;
 
 @Service
 public class CategoryServiceImpl implements ICategoryService {
@@ -44,8 +46,12 @@ public class CategoryServiceImpl implements ICategoryService {
 	public List<Category> getAllCategorys() {
 		return repo.findAll();
 	}
-
-
 	
+	@Override
+	public Map<Long, String> getCategoryIdAndName(String status) {
+		List<Object[]> list = repo.getCategoryIdAndName(status);
+		return AppUtil.convertListToMapLong(list);
+	}
+
 
 }

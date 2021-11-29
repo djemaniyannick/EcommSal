@@ -9,11 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codeimmig.yannick.entity.Brand;
+import com.codeimmig.yannick.exception.BrandNotFoundException;
 import com.codeimmig.yannick.service.IBrandService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j
 @RequestMapping("/brand")
 public class BrandController {
 	@Autowired
@@ -44,5 +50,21 @@ public class BrandController {
 			List<Brand> list = service.getAllBrands();
 			model.addAttribute("list", list);
 			return "BrandData";
+		}
+		
+		@GetMapping("/delete")
+		public String deleteCategory(@RequestParam Long id, RedirectAttributes attributes) {
+			log.info("ENTERED INTO DELETE METHOD");
+			try {
+				service.deleteBrand(id);
+				attributes.addAttribute("message", "Category deleted with Id:" + id);
+				log.debug("BRAND DELETED WITH ID: {}",id);
+			} catch (BrandNotFoundException e) {
+				e.printStackTrace();
+				attributes.addAttribute("message", e.getMessage());
+				log.error("ERORR IS : {}", e.getMessage() );
+			}
+			log.info("ABOUT TO LEAVE DELETE METHOD");
+			return "redirect:all";
 		}
 }

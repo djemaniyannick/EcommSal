@@ -3,7 +3,7 @@ function uploadFile() {
   var form = new FormData();
   form.append("image", file.files[0]);
   var inputs = {
-    url: "https://api.imgbb.com/1/upload?key=c41495c39db4f2a91e59232ed6dd47a3",
+    url: "https://api.imgbb.com/1/upload?key=fb3a84ce3407c467095dfc4aec66e16c",
     method: "POST",
     timeout: 0,
     processData: false,
