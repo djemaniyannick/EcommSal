@@ -67,4 +67,26 @@ public class BrandController {
 			log.info("ABOUT TO LEAVE DELETE METHOD");
 			return "redirect:all";
 		}
+		
+		@GetMapping("/edit")
+		public String editCategory(@RequestParam Long id, Model model, RedirectAttributes attributes) {
+			String page = null;
+			try {
+				Brand ob = service.getOneBrand(id);
+				model.addAttribute("brand", ob);
+				page = "BrandEdit";
+			} catch (BrandNotFoundException e) {
+				e.printStackTrace();
+				attributes.addAttribute("message", e.getMessage());
+				page = "redirect:all";
+			}
+			return page;
+		}
+
+		@PostMapping("/update")
+		public String updateBrand(@ModelAttribute Brand brand, RedirectAttributes attributes) {
+			service.updateBrand(brand);
+			attributes.addAttribute("message", "Brand updated");
+			return "redirect:all";
+		}
 }
