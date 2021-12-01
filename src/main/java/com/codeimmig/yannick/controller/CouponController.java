@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.codeimmig.yannick.entity.Category;
 import com.codeimmig.yannick.entity.Coupon;
-import com.codeimmig.yannick.exception.CategoryNotFoundException;
 import com.codeimmig.yannick.exception.CouponNotFoundException;
-import com.codeimmig.yannick.service.ICoupon;
+import com.codeimmig.yannick.service.ICouponService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CouponController {
 	@Autowired
-	private ICoupon service;
+	private ICouponService service;
 	//1. show Register page
 			@GetMapping("register")
 			public String showReg() {

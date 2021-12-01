@@ -11,7 +11,5 @@ public interface IBrandService {
 		Brand getOneBrand(Long id);
 		List<Brand> getAllBrands();
 		Map<Long,String> getBrandIdAndName();
-	
-
 
 }

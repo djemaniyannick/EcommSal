@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.codeimmig.yannick.entity.Coupon;
 import com.codeimmig.yannick.exception.CouponNotFoundException;
 import com.codeimmig.yannick.repo.CouponRepository;
-import com.codeimmig.yannick.service.ICoupon;
+import com.codeimmig.yannick.service.ICouponService;
 
 @Service
-public class CouponServiceImpl implements ICoupon {
+public class CouponServiceImpl implements ICouponService {
 	@Autowired
 	CouponRepository repo;
 
