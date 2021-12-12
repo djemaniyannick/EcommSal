@@ -1,6 +1,7 @@
 package com.codeimmig.yannick.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import com.codeimmig.yannick.entity.Product;
 import com.codeimmig.yannick.exception.ProductNotFoundException;
 import com.codeimmig.yannick.repo.ProductRepository;
 import com.codeimmig.yannick.service.IProductService;
+import com.codeimmig.yannick.util.AppUtil;
 
 @Service
 public class ProductServiceImpl implements IProductService {
@@ -39,5 +41,11 @@ public class ProductServiceImpl implements IProductService {
 	public List<Product> getAllProducts() {
 		return repo.findAll();
 	}
+	
+	public Map<Long, String> getProductIdAndName() {
+		List<Object[]> list = repo.getProductIdAndNames();
+		return AppUtil.convertListToMapLong(list);
+	}
+
 
 }
