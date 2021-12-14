@@ -52,6 +52,4 @@ public class CategoryServiceImpl implements ICategoryService {
 		List<Object[]> list = repo.getCategoryIdAndName(status);
 		return AppUtil.convertListToMapLong(list);
 	}
-
-
 }

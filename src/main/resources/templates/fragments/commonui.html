@@ -12,7 +12,7 @@
 </head>
 
 <nav th:fragment="menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">ECOMSAL</a>
+  <a class="navbar-brand" href="#">ECOMMSAL</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -91,6 +91,18 @@
         </div>
       </li>
       <!--Shipping END-->
+      
+      <!--AppUser START-->
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AppUser
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" th:href="@{/appuser/register}">Add</a>
+          <a class="dropdown-item" th:href="@{/appuser/all}">View All</a>
+        </div>
+      </li>
+      <!--AppUser END-->
       
       <!--Shipping START-->
       <li class="nav-item dropdown" >
